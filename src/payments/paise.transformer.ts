@@ -14,7 +14,9 @@ export const paiseTransformer: ValueTransformer = {
   to(value?: number | null): number | null | undefined {
     if (value === null || value === undefined) return value;
     if (!Number.isSafeInteger(value)) {
-      throw new Error(`Invalid paise amount (must be a safe integer): ${String(value)}`);
+      throw new Error(
+        `Invalid paise amount (must be a safe integer): ${String(value)}`,
+      );
     }
     return value;
   },
@@ -22,7 +24,9 @@ export const paiseTransformer: ValueTransformer = {
     if (value === null || value === undefined) return value;
     const n = Number(value);
     if (!Number.isSafeInteger(n)) {
-      throw new Error(`Paise value from database is not a safe integer: ${value}`);
+      throw new Error(
+        `Paise value from database is not a safe integer: ${value}`,
+      );
     }
     return n;
   },
