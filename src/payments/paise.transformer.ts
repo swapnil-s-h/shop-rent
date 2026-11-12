@@ -7,8 +7,9 @@ import { ValueTransformer } from 'typeorm';
  *   @Column({ type: 'bigint', transformer: paiseTransformer })
  *   amountPaise: number;
  *
- * Amounts here are far below Number.MAX_SAFE_INTEGER (₹9 crore-crore), and anything
- * that isn't a safe integer is rejected loudly instead of being silently rounded.
+ * Amounts here are far below Number.MAX_SAFE_INTEGER (about 9 quadrillion paise),
+ * and anything that isn't a safe integer is rejected loudly instead of being
+ * silently rounded.
  */
 export const paiseTransformer: ValueTransformer = {
   to(value?: number | null): number | null | undefined {

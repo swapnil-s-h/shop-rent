@@ -244,8 +244,8 @@ For local development, use the formatting and linting commands that automaticall
 Integration tests drop and recreate the whole schema, so they use a dedicated database whose name must end with `_test`:
 
 ```bash
-createdb shop_rent_test
-DATABASE_URL_TEST=postgres://postgres:postgres@localhost:5432/shop_rent_test npm run test:int
+createdb -U postgres shop_rent_test
+DATABASE_URL_TEST=postgres://postgres:abcdefgh@localhost:5432/shop_rent_test npm run test:int
 ```
 
 The tests refuse to run against any database whose name does not end with `_test`.
@@ -271,6 +271,8 @@ The repository follows a branch-based development workflow.
 | `fix/*`       | Bug fixes                                |
 | `chore/*`     | Maintenance and repository configuration |
 | `hotfix/*`    | Urgent production fixes                  |
+| `docs/*`      | Documentation                            |
+| `test/*`      | Tests                                    |
 
 ### Development Workflow
 
